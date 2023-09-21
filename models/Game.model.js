@@ -16,8 +16,9 @@ const gameSchema = new Schema({
       "Multiplayer Online Battle Arena",
       "Battle-Royale",
     ],
-    image: String,
+    
   },
+  image: String,
 });
 
 module.exports = model("Game", gameSchema);

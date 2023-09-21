@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const Tournament = require("../models/Tournament.model");
 const Game = require("../models/Game.model");
 
-router.post("/tournament", (req, res, next) => {
+router.post("/tournaments", (req, res, next) => {
   const { title, description, format, participants, game, timezone, date, rules } =
     req.body;
 
@@ -31,7 +31,7 @@ router.post("/tournament", (req, res, next) => {
     });
 });
 
-router.get("/tournament", (req, res, next) => {
+router.get("/tournaments", (req, res, next) => {
   Tournament.find()
     .populate("game")
     .then((allTournaments) => res.json(allTournaments))
@@ -44,7 +44,7 @@ router.get("/tournament", (req, res, next) => {
     });
 });
 
-router.get("/tournament/:tournamentId", (req, res, next) => {
+router.get("/tournaments/:tournamentId", (req, res, next) => {
   const { tournamentId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(tournamentId)) {
@@ -64,7 +64,7 @@ router.get("/tournament/:tournamentId", (req, res, next) => {
     });
 });
 
-router.put("/tournament/:tournamentId", (req, res, next) => {
+router.put("/tournaments/:tournamentId", (req, res, next) => {
   const { tournamentId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(tournamentId)) {
@@ -93,7 +93,7 @@ router.put("/tournament/:tournamentId", (req, res, next) => {
     });
 });
 
-router.delete("/tournament/:tournamentId", (req, res, next) => {
+router.delete("/tournaments/:tournamentId", (req, res, next) => {
   const { tournamentId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(tournamentId)) {

@@ -18,9 +18,9 @@ router.post("/games/create", (req, res, next) => {
      Game.create(newGame)
         .then((response) => res.json(response))
             .catch(err => {
-            console.log("Error creating new task...", err);
+            console.log("Error creating new game...", err);
             res.status(500).json({
-                message: "Error creating a new task",
+                message: "Error creating a new game",
                 error: err
             });})
     })
