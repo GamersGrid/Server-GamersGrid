@@ -6,18 +6,12 @@ const Tournament = require("../models/Tournament.model");
 const Game = require("../models/Game.model");
 
 router.post("/tournaments", (req, res, next) => {
-  const { title, description, format, participants, game, timezone, date, rules } =
+  const { title, description} =
     req.body;
 
   const newTournament = {
     title,
     description,
-    format,
-    participants,
-    game,
-    timezone,
-    date,
-    rules,
   };
 
   Tournament.create(newTournament)
@@ -75,11 +69,6 @@ router.put("/tournaments/:tournamentId", (req, res, next) => {
   const newDetails = {
     title: req.body.title,
     description: req.body.description,
-    participants: req.body.participants,
-    game: req.body.game,
-    timezone: req.body.timezone,
-    date: req.body.date,
-    rules: req.body.rules,
   };
 
   Tournament.findByIdAndUpdate(tournamentId, newDetails, { new: true })
