@@ -27,7 +27,6 @@ router.post("/tournaments", (req, res, next) => {
 
 router.get("/tournaments", (req, res, next) => {
   Tournament.find()
-    .populate("game")
     .then((allTournaments) => res.json(allTournaments))
     .catch((err) => {
       console.log("Error getting list of Tournaments...", err);
