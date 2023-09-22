@@ -46,7 +46,6 @@ router.get("/tournaments/:tournamentId", (req, res, next) => {
   }
 
   Tournament.findById(tournamentId)
-    .populate("game")
     .then((tournament) => res.json(tournament))
     .catch((err) => {
       console.log("...", err);
