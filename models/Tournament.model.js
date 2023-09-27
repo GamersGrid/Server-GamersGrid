@@ -9,14 +9,7 @@ const tournamentSchema = new Schema(
     },
     description: String,
     prize: String,
-    category: {
-      type: String,
-      enum: ["Single elimination", "Double elimination", "Triple elimination"],
-    },
-    participants: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-    },
+    participants: String,
     game: {
       type: Schema.Types.ObjectId,
       ref: "Game",

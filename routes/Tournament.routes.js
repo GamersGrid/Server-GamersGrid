@@ -6,14 +6,13 @@ const Tournament = require("../models/Tournament.model");
 const Game = require("../models/Game.model");
 
 router.post("/tournaments", (req, res, next) => {
-  const { title, description, prize, category, participants, game, dateTime } =
+  const { title, description, prize, participants, game, dateTime } =
     req.body;
 
   const newTournament = {
     title,
     description,
     prize,
-    category,
     participants,
     game,
     dateTime,
@@ -73,7 +72,6 @@ router.put("/tournaments/:tournamentId", (req, res, next) => {
     title: req.body.title,
     description: req.body.description,
     prize: req.body.prize,
-    category: req.body.category,
     participants: req.body.participants,
     game: req.body.game,
     dateTime: req.body.dateTime,
