@@ -19,6 +19,10 @@ const tournamentSchema = new Schema(
       type: Date,
       required: true,
     },
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
