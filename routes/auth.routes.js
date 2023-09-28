@@ -65,10 +65,14 @@ router.post("/signup", (req, res, next) => {
       const { email, username, _id } = createdUser;
 
       
-      const user = { email, username, _id };
-
+      const payload = { _id, email, username };
       
-      res.status(201).json({ user: user });
+      const authToken = jwt.sign(payload, process.env.TOKEN_SECRET, {
+        algorithm: "HS256",
+        expiresIn: "6h",
+      });
+      
+      res.status(201).json({ authToken: authToken });
     })
     .catch((err) => next(err)); 
 });
